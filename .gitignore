@@ -4,13 +4,11 @@ __pycache__/
 *.egg-info/
 
 # Dados do Data Lake
-data/
-app/data/
-*/data/
-*/work/
-*/zips/
-*/csv_empresas/
-*/csv_socios/
+/app/data/bronze/
+*/data/bronze/
+*/data/silver/
+*/data/gold/
+*/data/samples/
 
 # Spark/Delta temporários
 */_delta_log/
