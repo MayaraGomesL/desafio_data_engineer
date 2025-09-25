@@ -1,0 +1,35 @@
+services:
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: ml_data_engineer_sql
+    ports: ["5432:5432"]
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d ml_data_engineer_sql"]
+      interval: 30s
+      timeout: 20s
+      retries: 5
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      PG_HOST: db
+      PG_PORT: "5432"
+      PG_DB: ml_data_engineer_sql
+      PG_USER: postgres
+      PG_PASSWORD: postgres
+    volumes:
+      - .:/app
+    command: ["python", "src/pipeline.py", "${ANO_MES:-2025-09}", "1", "1"]
+
+volumes:
+  pg_data:

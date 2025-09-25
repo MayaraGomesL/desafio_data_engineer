@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Dados do Data Lake
+data/
+app/data/
+*/data/
+*/work/
+*/zips/
+*/csv_empresas/
+*/csv_socios/
+
+# Spark/Delta temporários
+*/_delta_log/
+*_SUCCESS
+*.crc
+*.parquet
+
+# Logs
+logs/
+*.log
+
+# IDE/OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

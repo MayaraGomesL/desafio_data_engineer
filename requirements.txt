@@ -1,0 +1,10 @@
+# Processamento e manipulação de dados
+pyspark==4.0.1
+delta-spark==4.0.0
+
+# Chamadas HTTP e download de arquivos
+requests==2.32.3
+beautifulsoup4==4.12.3
+
+# Conexão com PostgreSQL
+psycopg2-binary==2.9.10
