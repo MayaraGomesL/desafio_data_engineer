@@ -4,21 +4,31 @@ __pycache__/
 *.egg-info/
 
 # Dados do Data Lake
-data/
-app/data/
-*/data/
-*/csv_empresas/
-*/csv_socios/
+data/bronze/
+data/silver/
+data/gold/
 
-# Spark/Delta temporários
-*/_delta_log/
+# Ignora tudo dentro de data/work...
+data/work/*
+# ...exceto a própria pasta work e a pasta zips
+!data/work/
+!data/work/zips/
+!data/work/zips/**
+
+app/data/bronze/
+app/data/silver/
+app/data/gold/
+app/data/work/*
+!app/data/work/
+!app/data/work/zips/
+!app/data/work/zips/**
+
+# Logs e temporários Spark/Delta
+logs/
 *_SUCCESS
 *.crc
 *.parquet
-
-# Logs
-logs/
-*.log
+*/_delta_log/
 
 # IDE/OS
 .vscode/
